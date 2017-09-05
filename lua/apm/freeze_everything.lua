@@ -1,4 +1,3 @@
-CreateConVar("apm_freeze_all_anonymity", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decides if freezall is annonymous to non admins")
 if SERVER then
 	concommand.Add("freeze_everything", function(ply)
 		if ply:IsValid() and ply:IsAdmin() then

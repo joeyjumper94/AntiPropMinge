@@ -1,5 +1,5 @@
 local MurderEntBlackList={"prop_physics","gmod_balloon","gmod_button","gmod_hoverball","gmod_thruster"}
-CreateConVar("apm_prop_suicide_notification", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is killed by their own prop")
+CreateConVar("apm_prop_suicide_notification", "1", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is killed by their own prop")
 if SERVER then
 	function GAMEMODE:PlayerDeath(ply,weapon,killer)--the hook to define the killer and the victim
 		if IsValid(weapon) and table.concat(MurderEntBlackList):find(weapon:GetClass()) then
