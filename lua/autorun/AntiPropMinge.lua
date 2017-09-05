@@ -64,3 +64,4 @@ if SERVER then
 		end
 	end)
 end
+print("loaded Anti Prop Minge")
