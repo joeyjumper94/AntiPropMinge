@@ -18,6 +18,7 @@ if SERVER then
 		end
 	end
 end
+<<<<<<< HEAD
 --]]--
 
 local function APM_ShouldTakeCDMG(ply, weapon)
@@ -34,3 +35,6 @@ local function APM_ShouldTakeCDMG(ply, weapon)
 	end
 end
 hook.Add("PlayerShouldTakeDamage", "APM_PLYCDMG", APM_ShouldTakeCDMG )
+=======
+--]]--
+>>>>>>> origin/master
