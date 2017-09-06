@@ -9,7 +9,7 @@ concommand.Add( "apm_freeze_all_ents", function() RunConsoleCommand("apm_freeze_
 
 -- for some reason, the files doing anything untill refreshed
 if SERVER then
-	timer.Create("apm_refresher", 1, 5, function()
+	timer.Create("apm_refresher", 10, 10, function()
 		include("apm/init.lua") -- by running this, we refresh the lua of the addon
 	end)
 end
