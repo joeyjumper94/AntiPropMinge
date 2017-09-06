@@ -1,3 +1,4 @@
+--[[--
 if SERVER then
 	function GAMEMODE:PlayerShouldTakeDamage(ply,weapon)
 		if IsValid(weapon) and (weapon:GetClass():find("vehicle") or weapon:IsVehicle()) then
@@ -19,3 +20,4 @@ if SERVER then
 		end
 	end
 end
+--]]--

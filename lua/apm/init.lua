@@ -4,6 +4,7 @@ if SERVER then
 	include("propkill_hook.lua")
 	include("prop_damage_hook.lua")
 	include("vehicle_damage_hook.lua")
+	include("apm_util.lua")
 end
 
 CreateConVar("apm_freeze_all_anonymity", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decides if freezall is annonymous to non admins")
