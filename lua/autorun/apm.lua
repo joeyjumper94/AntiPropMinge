@@ -3,12 +3,7 @@ if SERVER then
 	AddCSLuaFile()
 end
 if CLIENT then
-<<<<<<< HEAD
 	concommand.Add( "apm_freeze_my_stuff", function() RunConsoleCommand("apm_freeze_ply_msg") end)
-=======
-	concommand.Add( "apm_freeze_my_stuff", function() RunConsoleCommand("freeze_my_props") end)
-	concommand.Add( "apm_freeze_all_ents", function() RunConsoleCommand("freeze_everything") end)
->>>>>>> origin/master
 end
 concommand.Add( "apm_freeze_all_ents", function() RunConsoleCommand("apm_freeze_all_msg") end)
 

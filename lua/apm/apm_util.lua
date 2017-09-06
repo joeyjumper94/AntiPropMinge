@@ -14,15 +14,9 @@ function apm_tab:EasyFPrint(message, state)
 end
 
 function apm_tab:FreezeAll()
-<<<<<<< HEAD
 	for k, entity in pairs(ents.GetAll()) do
 		local phys = entity:GetPhysicsObject()
 		if entity:IsValid() and phys:IsValid() then
-=======
-	for k, entity in pairs(ents.FindByClass("prop_physics")) do
-		if entity:IsValid() and not(entity:IsWorld()) then
-			local phys = entity:GetPhysicsObject()
->>>>>>> origin/master
 			phys:EnableMotion(false)
 			phys:Sleep()
 		end
@@ -30,21 +24,11 @@ function apm_tab:FreezeAll()
 end
 
 function apm_tab:FreezeOnly(ply)
-<<<<<<< HEAD
 	for k, entity in pairs(ents.GetAll()) do
 		local phys = entity:GetPhysicsObject()
 		if entity:IsValid() and phys:IsValid() and entity:CPPIGetOwner() == ply then
 			phys:EnableMotion(false)
 			phys:Sleep()
-=======
-	for k, entity in pairs(ents.FindByClass("prop_physics")) do
-		if entity:IsValid() then
-			local phys = entity:GetPhysicsObject()
-			if phys:IsValid() and entity:CPPIGetOwner() == ply then
-				phys:EnableMotion(false)
-				phys:Sleep()
-			end
->>>>>>> origin/master
 		end
 	end
 end

@@ -16,32 +16,5 @@ local function APM_ShouldTakeDMG(ply, weapon)
 
 		return GetConVarNumber("apm_allow_prop_damage") != 0
 	end
-<<<<<<< HEAD
 end
 hook.Add("PlayerShouldTakeDamage", "APM_PLYDMG", APM_ShouldTakeDMG )
-=======
-
-	if weapon:IsValid() and GetConVarNumber("apm_freeze_on_damage") != 0 then
-		apm_tab:FreezeOnly(weapon:CPPIGetOwner())
-		return GetConVarNumber("apm_allow_prop_damage") != 0
-	end
-
-	return true
-end
-hook.Add("PlayerShouldTakeDamage", "APM_PLYDMG", APM_ShouldTakeDMG )
-
-local function APM_OnDMG(ply, dmg)
-	if not(ply:IsPlayer()) then return end
-
-	local d_type = dmg:GetDamageType()
-	local d_owner = dmg:GetAttacker():GetClass()
-
-	print(d_type)
-
-	if d_type == DMG_CRUSH or DMG_VEHICLE then
-		dmg:SetDamage(0)
-	end
-end
-hook.Add("EntityTakeDamage", "APM_OnDMG", APM_OnDMG )
-print("Reloaded")
->>>>>>> origin/master
