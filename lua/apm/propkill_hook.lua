@@ -1,5 +1,5 @@
+--[[--
 local MurderEntBlackList={"prop_physics","prop_ragdoll","gmod_balloon","gmod_button","gmod_hoverball","gmod_thruster"}
-if SERVER then
 	function GAMEMODE:PlayerDeath(ply,weapon,killer)
 		if IsValid(weapon) and table.concat(MurderEntBlackList):find(weapon:GetClass()) then
 			if (weapon:CPPIGetOwner()!=ply or GetConVarNumber("apm_prop_suicide_notification")!=0) then
@@ -28,3 +28,4 @@ if SERVER then
 		end
 	end
 end
+--]]--
