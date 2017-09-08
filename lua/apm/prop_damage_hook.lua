@@ -9,7 +9,9 @@ local function APM_ShouldTakeDMG(ply, weapon)
 				apm_tab:AdminPM("Someone spectate ".. weapon:CPPIGetOwner():Nick().. " ("..weapon:CPPIGetOwner():SteamID().. "). A prop they own damaged ".. ply:Nick().. " (".. ply:SteamID().. ").")
 			end
 		end
-
+		if weapon:IsValid() and GetConVarNumber("apm_remove_on_damage") != 0 then
+			weapon:Remove()
+		end
 		if weapon:IsValid() and GetConVarNumber("apm_freeze_on_damage") != 0 then
 			apm_tab:FreezeOnly(weapon:CPPIGetOwner())
 		end

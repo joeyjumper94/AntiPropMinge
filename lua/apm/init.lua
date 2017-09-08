@@ -15,3 +15,4 @@ CreateConVar("apm_allow_prop_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXEC
 CreateConVar("apm_allow_vehicle_damage", "1", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide if players can be lose health or die from getting hit by vehicles")
 CreateConVar("apm_notify_on_vehicle_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is damaged by a vehicle")
 CreateConVar("apm_strict_damage_check", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide if we use strict damage checks, it will block ALL sources of crush damage")
+CreateConVar("apm_remove_on_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to remove a player's prop if it damages someone")
