@@ -37,9 +37,14 @@ decide whether to notify admins if someone is damaged by a vehicle.
 apm_strict_damage_check, default is 0.
 decide if we use strict damage checks, it will block ALL sources of crush damage.
 
+apm_remove_on_damage, default is 0.
+decide whether to freeze a player's prop if it damages someone.
+
 and the console commands:
 
 apm_freeze_all_ents.
+freezes all props and physics entities on the map.
 ( only works from the server console or if the server thinks you are an admin)
 
 apm_freeze_my_stuff.
+freezes all physics entities you own.
