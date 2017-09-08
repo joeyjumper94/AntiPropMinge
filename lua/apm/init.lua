@@ -4,6 +4,7 @@ if SERVER then
 	include("propkill_hook.lua")
 	include("prop_damage_hook.lua")
 	include("vehicle_damage_hook.lua")
+	include("readme.lua")
 	include("apm_util.lua")
 end
 
