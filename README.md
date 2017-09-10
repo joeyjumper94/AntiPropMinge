@@ -40,6 +40,12 @@ decide if we use strict damage checks, it will block ALL sources of crush damage
 apm_remove_on_damage, default is 0.
 decide whether to freeze a player's prop if it damages someone.
 
+apm_allow_world_damage, default is 1.
+decide if players can be lose health or die from world damage.
+
+apm_print_damage_info, default is 0.
+decide whether to print the damage info for debuging purposes.
+
 and the console commands:
 
 apm_freeze_all_ents.
