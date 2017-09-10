@@ -27,6 +27,12 @@ local apm_readme_table={'',
 'apm_allow_prop_damage, default is 0.',
 'decide if players can be lose health or die from prop damage.',
 '',
+'apm_allow_world_damage, default is 1.',
+'decide if players can be lose health or die from world damage.',
+'',
+'apm_print_damage_info, default is 0.',
+'decide whether to print the damage info for debuging purposes',
+'',
 'apm_allow_vehicle_damage, default is 1.',
 'decide if players can be lose health or die from getting hit by vehicles.',
 '',
@@ -57,9 +63,6 @@ local apm_readme_table={'',
 'http://steamcommunity.com/sharedfiles/filedetails/?id=1129686491 is the workshop version',
 '',
 'https://github.com/joeyjumper94/Anti_Prop_Minge is the githb version'
-
-
-
 
 
 
