@@ -106,13 +106,3 @@ local apm_readme_table={'',
 		end 
 	end
 end)
---[[PPM_update_table={}
-concommand.Add('ppm_update', function()
-	if PPM_update_table!=nil then
-		for r=1,#PPM_update_table do
-			if PPM_update_table[r]!=nil then
-				print(PPM_update_table[r])
-			else return end
-		end 
-	end
-end)]]
