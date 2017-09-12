@@ -100,9 +100,7 @@ local apm_readme_table={'',
 }concommand.Add('apm_readme', function()
 	if PPM_readme_table!=nil then
 		for P=1,#apm_readme_table do
-			if apm_readme_table[P]!=nil then
-				print(apm_readme_table[P]) 
-			else return	end
+			print(apm_readme_table[P]) 
 		end 
 	end
 end)

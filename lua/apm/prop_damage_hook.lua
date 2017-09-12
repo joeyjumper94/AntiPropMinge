@@ -1,7 +1,14 @@
-local MurderEntBlackList = { "prop_physics", "prop_ragdoll", "gmod_balloon", "gmod_button", "gmod_hoverball", "gmod_thruster" }
+local MurderEntBlackList = { 
+	["prop_physics"] = true, 
+	["prop_ragdoll"] = true, 
+	["gmod_balloon"] = true, 
+	["gmod_button"] = true, 
+	["gmod_hoverball"] = true, 
+	["gmod_thruster"] = true
+}
 
 hook.Add("PlayerShouldTakeDamage", "APM_prop_damage", function(ply, weapon)
-	if IsValid(weapon) and table.concat(MurderEntBlackList):find(weapon:GetClass()) then
+	if IsValid(weapon) and MurderEntBlackList[weapon:GetClass()] != nil then
 		killer=weapon:CPPIGetOwner()
 		if (killer != ply or GetConVarNumber("apm_prop_suicide_notification") != 0) and GetConVarNumber("apm_notify_on_damage") != 0 then
 			if ConVarExists("ulx_rslots") then

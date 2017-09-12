@@ -1,17 +1,19 @@
-concommand.Add("apm_freeze_all_msg", function(ply)
-	if ply:IsValid() and ply:IsAdmin() then
-		local anonymous = GetConVarNumber("apm_freeze_all_anonymity")
-		print(ply:Nick().. " (".. ply:SteamID().. ") has frozen all props")
+concommand.Add("apm_freeze_all_msg", function(ply)	
+	if ply:IsValid() then
+		if ply:IsAdmin() then
+			local anonymous = GetConVarNumber("apm_freeze_all_anonymity")
+			print(ply:Nick().. " (".. ply:SteamID().. ") has frozen all props")
 
-		apm_tab:EasyFPrint(ply:Nick().." ("..ply:SteamID()..") has frozen all props", anonymous)
+			apm_tab:EasyFPrint(ply:Nick().." ("..ply:SteamID()..") has frozen all props", anonymous)
 
-		apm_tab:FreezeAll()
-	elseif !ply:IsValid() then
+			apm_tab:FreezeAll()	
+		else
+			ply:PrintMessage(HUD_PRINTTALK, "you need to be an admin to do that")	
+		end
+	else
 		apm_tab:EasyFPrint("CONSOLE has frozen all props", 0)
 		
-		apm_tab:FreezeAll()
-	elseif ply:IsValid() then
-		ply:PrintMessage(HUD_PRINTTALK, "you need to be an admin to do that")
+		apm_tab:FreezeAll()	
 	end
 end)
 --[[
