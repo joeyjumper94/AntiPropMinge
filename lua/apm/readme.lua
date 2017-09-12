@@ -78,9 +78,4 @@ concommand.Add('apm_readme', function()
 			print(apm_readme_table[P]) 
 		end 
 	end
-<<<<<<< HEAD
 end)
-=======
-end)
-AddCSLuaFile()
->>>>>>> origin/master
