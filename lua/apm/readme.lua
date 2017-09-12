@@ -97,9 +97,6 @@ local apm_readme_table={'',
 
 
 
-
-
-
 }concommand.Add('apm_readme', function()
 	if PPM_readme_table!=nil then
 		for P=1,#apm_readme_table do
@@ -109,3 +106,4 @@ local apm_readme_table={'',
 		end 
 	end
 end)
+AddCSLuaFile()
