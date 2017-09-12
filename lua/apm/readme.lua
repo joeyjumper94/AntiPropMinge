@@ -44,6 +44,12 @@ local apm_readme_table={'',
 '',
 'apm_remove_on_damage, default is 0.',
 'decide whether to freeze a player\'s prop if it damages someone.',
+'',
+'apm_nocollide_on_prop_damage',
+'decide whether to nocollide a player\'s prop if it damages someone',
+'',
+'apm_nocollide_on_vehicle_damage',
+'decide whether to nocollide a player\'s car if it damages someone',
 '_________________________________________________________________________________________',
 '',
 'console commands',
@@ -58,52 +64,18 @@ local apm_readme_table={'',
 '',
 'apm_readme',
 'prints this readme into console, works on both the clients console and the server console',
+'',
+'apm_restart',
+'refreshes apm by reloading all files',
 '_________________________________________________________________________________________',
 '',
 'http://steamcommunity.com/sharedfiles/filedetails/?id=1129686491 is the workshop version',
 '',
-'https://github.com/joeyjumper94/Anti_Prop_Minge is the githb version'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}concommand.Add('apm_readme', function()
+'https://github.com/joeyjumper94/Anti_Prop_Minge is the githb version'}
+concommand.Add('apm_readme', function()
 	if PPM_readme_table!=nil then
 		for P=1,#apm_readme_table do
-			if apm_readme_table[P]!=nil then
-				print(apm_readme_table[P]) 
-			else return	end
+			print(apm_readme_table[P]) 
 		end 
 	end
 end)
-AddCSLuaFile()

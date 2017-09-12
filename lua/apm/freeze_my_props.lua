@@ -1,8 +1,11 @@
 concommand.Add("apm_freeze_ply_msg", function(ply)
-	if ply:IsValid() then
+	if ply:IsValid() and timer.Exists("apm_antispam_timer") then
+		ply:PrintMessage(HUD_PRINTTALK, "this function is on cooldown, you must wait "..timer.TimeLeft("apm_antispam_timer").." before running this command")
+	elseif ply:IsValid() then
+		timer.Create("apm_antispam_timer", 3, 1, function() timer.Remove("apm_antispam_timer") end)
 		local lply = ply
 		apm_tab:FreezeOnly(lply)
-		return
+	else
+		print('this function only works when used by players in game')
 	end
-	print('"freeze_my_props" only works when used by players in game')
 end)
