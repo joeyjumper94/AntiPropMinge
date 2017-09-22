@@ -35,3 +35,11 @@ function apm_tab:AdminPM(message)
 		end
 	end
 end
+
+function apm_tab:RemoveOnly(ply)
+	for k, entity in ipairs(ents.GetAll()) do
+		if entity:IsValid() and entity:CPPIGetOwner() == ply then
+			SafeRemoveEntity(entity)
+		end
+	end
+end

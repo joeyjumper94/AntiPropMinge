@@ -6,6 +6,7 @@ if SERVER then
 	include("vehicle_damage_hook.lua")
 	include("apm_util.lua")
 	include("strict_damage_check.lua")
+	include("prop_removal.lua")
 
 	CreateConVar("apm_freeze_all_anonymity", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decides if freezall is annonymous to non admins")
 	CreateConVar("apm_prop_suicide_notification", "1", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is killed by their own prop")

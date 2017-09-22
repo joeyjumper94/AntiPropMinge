@@ -1,5 +1,5 @@
 hook.Add("EntityTakeDamage", "APM_strict_damage", function(ply, dmg)
-	if not ply:IsValid() or not ply:IsPlayer() then return end
+	if !ply:IsValid() or !ply:IsPlayer() then return end
 
 	local d_type = dmg:GetDamageType()
 	local d_owner = dmg:GetAttacker():GetClass()
@@ -14,3 +14,5 @@ hook.Add("EntityTakeDamage", "APM_strict_damage", function(ply, dmg)
 		dmg:SetDamage(0)
 	end
 end )
+--GetConVarNumber("apm_strict_damage_check")=1
+--GetConVarNumber("apm_allow_world_damage")=1

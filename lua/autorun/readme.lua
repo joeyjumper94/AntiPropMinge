@@ -1,4 +1,4 @@
-local apm_readme_table={'',
+AddCSLuaFile() local apm_readme_table={'',
 'a series of serverside scripts that were made to ruin a propkill based minge\'s day.',
 '',
 'Falco\'s Prop Protecion is needed for this to work',
@@ -62,6 +62,13 @@ local apm_readme_table={'',
 'apm_freeze_my_stuff.',
 'freezes all physics entities you own.',
 '',
+'apm_remove_all_ents.',
+'runs a map cleanup.',
+'this only works from the server console or if the server thinks you are an admin.',
+'',
+'apm_remove_my_stuff.',
+'removes all entities you own.',
+'',
 'apm_readme',
 'prints this readme into console, works on both the clients console and the server console',
 '',
@@ -72,10 +79,10 @@ local apm_readme_table={'',
 'http://steamcommunity.com/sharedfiles/filedetails/?id=1129686491 is the workshop version',
 '',
 'https://github.com/joeyjumper94/Anti_Prop_Minge is the githb version'}
-concommand.Add('apm_readme', function()
+concommand.Add('ppm_readme', function()
 	if PPM_readme_table!=nil then
-		for P=1,#apm_readme_table do
-			print(apm_readme_table[P]) 
-		end 
+		for P,v in pairs(PPM_readme_table) do
+			print(v)
+		end
 	end
 end)
