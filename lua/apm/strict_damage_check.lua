@@ -10,7 +10,7 @@ hook.Add("EntityTakeDamage", "APM_strict_damage", function(ply, dmg)
 		
 	if (d_type == DMG_CRUSH or d_type == DMG_VEHICLE) and GetConVarNumber("apm_strict_damage_check") != 0 then
 		dmg:SetDamage(0)
-	elseif d_type == DMG_FALL and GetConVarNumber("apm_allow_world_damage")==0 then
+	elseif d_type != DMG_FALL and dmg:GetInflictor():IsWorld() and GetConVarNumber("apm_allow_world_damage")==0 then
 		dmg:SetDamage(0)
 	end
 end )

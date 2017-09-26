@@ -1,6 +1,6 @@
 concommand.Add("apm_remove_ply_msg", function(ply)
 	if ply:IsValid() and timer.Exists("apm_antispam_timer") then
-		ply:PrintMessage(HUD_PRINTTALK, "this function is on cooldown, you must wait "..timer.TimeLeft("apm_antispam_timer").." before running this command")
+		ply:PrintMessage(HUD_PRINTTALK, "this function is on cooldown, wait "..math.Round(timer.TimeLeft("apm_antispam_timer"),2).." before running this command")
 	elseif ply:IsValid() then
 		timer.Create("apm_antispam_timer", 3, 1, function() timer.Remove("apm_antispam_timer") end)
 		local lply = ply
@@ -10,6 +10,22 @@ concommand.Add("apm_remove_ply_msg", function(ply)
 	end
 end)
 
+concommand.Add("apm_remove_ply_all", function(ply)
+	if ply:IsValid() and !ply:IsAdmin() then
+		ply:PrintMessage(HUD_PRINTTALK, "you need to be a admin to do that")
+		return
+	end
+	for k,v in pairs(player.GetAll()) do
+		apm_tab:RemoveOnly(v)
+		if !ply:IsValid() then 
+			v:PrintMessage(HUD_PRINTTALK, "CONSOLE has removed all player owned props")
+		elseif v==ply then
+			v:PrintMessage(HUD_PRINTTALK, "you removed all player owned entities")
+		else
+			v:PrintMessage(HUD_PRINTTALK, ply:Nick().." ( "..ply:SteamID().." ) has removed all player owned entities")
+		end
+	end
+end)
 
 concommand.Add("apm_remove_all_msg", function(ply)	
 	if ply:IsValid() then
@@ -28,3 +44,4 @@ concommand.Add("apm_remove_all_msg", function(ply)
 		game.CleanUpMap( false, {} )
 	end
 end)
+
