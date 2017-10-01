@@ -10,6 +10,7 @@ local MurderEntBlackList = {
 hook.Add("PlayerShouldTakeDamage", "APM_prop_damage", function(ply, weapon)
 	if IsValid(weapon) and MurderEntBlackList[weapon:GetClass()] != nil then
 		killer=weapon:CPPIGetOwner()
+		if PROP_KILLER!=nil and ply:Team()==PROP_KILLER and killer:Team()==PROP_KILLER then return end -- this allows people with the right job to propkill people with the right job
 		if (killer != ply or GetConVarNumber("apm_prop_suicide_notification") != 0) and GetConVarNumber("apm_notify_on_damage") != 0 then
 			if ConVarExists("ulx_rslots") then
 				RunConsoleCommand("ulx", "asay", "someone spectate ".. killer:Nick().. " ("..killer:SteamID().. "). A prop they own damaged ".. ply:Nick().. " (".. ply:SteamID().. ").")

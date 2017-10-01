@@ -1,0 +1,31 @@
+PROP_KILLER = DarkRP.createJob("prop killer", {--leave this alone
+	color = Color(0, 153, 0, 255),
+	model = {
+		"models/player/Group01/Female_01.mdl",
+        "models/player/Group01/Female_02.mdl",
+        "models/player/Group01/Female_03.mdl",
+        "models/player/Group01/Female_04.mdl",
+        "models/player/Group01/Female_06.mdl",
+        "models/player/group01/male_01.mdl",
+        "models/player/Group01/Male_02.mdl",
+        "models/player/Group01/male_03.mdl",
+        "models/player/Group01/Male_04.mdl",
+        "models/player/Group01/Male_05.mdl",
+        "models/player/Group01/Male_06.mdl",
+        "models/player/Group01/Male_07.mdl",
+        "models/player/Group01/Male_08.mdl",
+		"models/player/Group01/Male_09.mdl"
+	},
+	description = [[You love propkilling and being propkilled
+Set your physgun_wheelspeed with a console command.
+Don't forget you can only propkill other propkillers.
+Be sure to clean up after yourself, we don't want to lag the Server with unfrozen props.]],--i suggest you leave the description alone
+	weapons = {}, --propkillers don't need anything else
+	command = "propkiller", --you could change this
+	max = 0, --0 means unlimited, leave this alone
+	salary = GAMEMODE.Config.normalsalary,
+	admin = 0,--leave this alone
+	vote = false,--leave this alone
+	hasLicense = false,--propkillers don't need gun permits
+	candemote = true,--leave this alone
+})

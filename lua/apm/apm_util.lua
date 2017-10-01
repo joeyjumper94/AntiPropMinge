@@ -11,7 +11,9 @@ end
 function apm_tab:FreezeAll()
 	for k, entity in ipairs(ents.GetAll()) do
 		local phys = entity:GetPhysicsObject()
-		if entity:IsValid() and phys:IsValid() then
+		if entity:IsValid() and entity:GetClass():find("ragdoll") then
+			SafeRemoveEntity(entity)
+		elseif entity:IsValid() and phys:IsValid() then
 			phys:EnableMotion(false)
 			phys:Sleep()
 		end
