@@ -7,7 +7,9 @@ if SERVER then
 	include("apm_util.lua")
 	include("strict_damage_check.lua")
 	include("prop_removal.lua")
+	include("physgun_reload_limiter.lua")
 
+	CreateConVar("apm_nocollide_all_vehicles", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "how oftem should we check for cars that are not nocollided? set to 0 to disable")
 	CreateConVar("apm_freeze_all_anonymity", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decides if freezall is annonymous to non admins")
 	CreateConVar("apm_prop_suicide_notification", "1", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is killed by their own prop")
 	CreateConVar("apm_notify_on_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to notify admins if someone is damaged by a prop")
@@ -21,4 +23,6 @@ if SERVER then
 	CreateConVar("apm_print_damage_info", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to print the damage info for debuging purposes")
 	CreateConVar("apm_nocollide_on_prop_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to nocollide a player's prop if it damages someone")
 	CreateConVar("apm_nocollide_on_vehicle_damage", "0", {FCVAR_ARCHIVE, FCVAR_SERVER_CAN_EXECUTE}, "decide whether to nocollide a player's car if it damages someone")
+	CreateConVar("apm_unfreeze_ent_delay","1",FCVAR_ARCHIVE,FCVAR_SERVER_CAN_EXECUTE,FCVAR_REPLICATED,"how many seconds must a player wait between using physgun?"):GetFloat()
+	CreateConVar("apm_unfreeze_ent_limit","10",FCVAR_ARCHIVE,FCVAR_SERVER_CAN_EXECUTE,FCVAR_REPLICATED,"how many enitites can be unfrozen at once using physgun reload?"):GetInt()
 end

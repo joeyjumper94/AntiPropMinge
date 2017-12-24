@@ -1,7 +1,7 @@
 concommand.Add("apm_freeze_all_msg", function(ply)	
 	if ply:IsValid() then
 		if ply:IsAdmin() then
-			local anonymous = GetConVarNumber("apm_freeze_all_anonymity")
+			local anonymous = GetConVar("apm_freeze_all_anonymity"):GetInt()
 			print(ply:Nick().. " (".. ply:SteamID().. ") has frozen all props")
 
 			apm_tab:EasyFPrint(ply:Nick().." ("..ply:SteamID()..") has frozen all props", anonymous)

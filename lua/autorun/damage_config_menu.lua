@@ -27,6 +27,16 @@ hook.Add("PopulateToolMenu", "apm_damage_menu", function()
 		function(panel)
 
 			panel:Button(
+				"disable car collisions(SuperAdmin function)",
+				"apm_disable_car_collisions"
+			)
+			panel:Button(
+				"disable car collisions(SuperAdmin function)",
+				"apm_enable_car_collisions"
+			)
+
+
+			panel:Button(
 				"disable prop damage(SuperAdmin function)",
 				"apm_disable_prop_damage"
 			)
@@ -100,25 +110,25 @@ end)
 
 if SERVER then
 
-	concommand.Add("apm_enable_freeze_on_damage", function(ply)
+	concommand.Add("apm_enable_car_collisions", function(ply)
 		if ply:IsValid() and !ply:IsSuperAdmin() then
 			ply:PrintMessage(HUD_PRINTTALK, "you need to be a superadmin to do that")
 			return
 		end
-		APM_Convar_MSG="a player's props will be frozen if they trigger the primary prop damage hook"
+		APM_Convar_MSG="cars can be made to collide with players"
 		apm_tab:EasyFPrint(APM_Convar_MSG,0)
 		print(APM_Convar_MSG)
-		RunConsoleCommand("apm_freeze_on_damage","1")
+		RunConsoleCommand("apm_nocollide_all_vehicles","0")
 	end)
-	concommand.Add("apm_disable_freeze_on_damage", function(ply)
+	concommand.Add("apm_disable_car_collisions", function(ply)
 		if ply:IsValid() and !ply:IsSuperAdmin() then
 			ply:PrintMessage(HUD_PRINTTALK, "you need to be a superadmin to do that")
 			return
 		end
-		APM_Convar_MSG="props will not be frozen if the damage hook is triggered"
+		APM_Convar_MSG="cars will no longer collide with players"
 		apm_tab:EasyFPrint(APM_Convar_MSG,0)
 		print(APM_Convar_MSG)
-		RunConsoleCommand("apm_freeze_on_damage","0")
+		RunConsoleCommand("apm_nocollide_all_vehicles","1")
 	end)
 
 	concommand.Add("apm_enable_prop_damage", function(ply)
@@ -140,6 +150,27 @@ if SERVER then
 		apm_tab:EasyFPrint(APM_Convar_MSG,0)
 		print(APM_Convar_MSG)
 		RunConsoleCommand("apm_allow_prop_damage","0")
+	end)
+
+	concommand.Add("apm_enable_freeze_on_damage", function(ply)
+		if ply:IsValid() and !ply:IsSuperAdmin() then
+			ply:PrintMessage(HUD_PRINTTALK, "you need to be a superadmin to do that")
+			return
+		end
+		APM_Convar_MSG="a player's props will be frozen if they trigger the primary prop damage hook"
+		apm_tab:EasyFPrint(APM_Convar_MSG,0)
+		print(APM_Convar_MSG)
+		RunConsoleCommand("apm_freeze_on_damage","1")
+	end)
+	concommand.Add("apm_disable_freeze_on_damage", function(ply)
+		if ply:IsValid() and !ply:IsSuperAdmin() then
+			ply:PrintMessage(HUD_PRINTTALK, "you need to be a superadmin to do that")
+			return
+		end
+		APM_Convar_MSG="props will not be frozen if the damage hook is triggered"
+		apm_tab:EasyFPrint(APM_Convar_MSG,0)
+		print(APM_Convar_MSG)
+		RunConsoleCommand("apm_freeze_on_damage","0")
 	end)
 
 	concommand.Add("apm_enable_world_crush_damage", function(ply)

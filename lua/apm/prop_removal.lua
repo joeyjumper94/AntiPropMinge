@@ -3,10 +3,9 @@ concommand.Add("apm_remove_ply_msg", function(ply)
 		ply:PrintMessage(HUD_PRINTTALK, "this function is on cooldown, wait "..math.Round(timer.TimeLeft("apm_antispam_timer"),2).." before running this command")
 	elseif ply:IsValid() then
 		timer.Create("apm_antispam_timer", 3, 1, function() timer.Remove("apm_antispam_timer") end)
-		local lply = ply
-		apm_tab:RemoveOnly(lply)
+		apm_tab:RemoveOnly(ply)
 	else
-		print('this function only works when used by players in game')
+		print'this function only works when used by players in game'
 	end
 end)
 
@@ -32,7 +31,7 @@ concommand.Add("apm_remove_all_msg", function(ply)
 		if ply:IsAdmin() then
 			ServerLog(ply:Nick().. " (".. ply:SteamID().. ") has reset the map")
 
-			apm_tab:EasyFPrint(ply:Nick().." ("..ply:SteamID()..") has reset the map", 0)
+			PrintMessage(HUD_PRINTTALK,ply:Nick().." ("..ply:SteamID()..") has reset the map")
 
 			game.CleanUpMap( false, {} )
 		else
