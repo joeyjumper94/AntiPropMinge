@@ -24,8 +24,8 @@ local apm_collision_whitelist={
 	[COLLISION_GROUP_WEAPON]=true,
 }
 
-timer.Create("apm_car_nocollider_timer",GetConVarNumber("apm_nocollide_all_vehicles"):GetFloat(),0,function()
-	if GetConVarNumber("apm_nocollide_all_vehicles"):GetBool() then
+timer.Create("apm_car_nocollider_timer",GetConVar("apm_nocollide_all_vehicles"):GetFloat(),0,function()
+	if GetConVar("apm_nocollide_all_vehicles"):GetBool() then
 		for k,car in pairs(ents.GetAll()) do
 			if car:IsValid() and car:IsVehicle() and apm_collision_whitelist[car:GetCollisionGroup()] then
 				car:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
