@@ -1,6 +1,3 @@
-AddCSLuaFile()
-local apm_unfreeze_ent_delay=GetConVar("apm_unfreeze_ent_delay"):GetFloat()
-local apm_unfreeze_ent_limit=GetConVar("apm_unfreeze_ent_limit"):GetInt()
 if SERVER then
 	hook.Add("OnPhysgunReload","apm_unfreeze_limiter",function(weapon,ply)
 		if ply and IsValid(ply) and ply:IsPlayer() then
@@ -13,8 +10,8 @@ if SERVER then
 				return false
 			end
 
-			if apm_unfreeze_ent_delay>0 then
-				ply.APM_Next_unfreeze=CurTime()+apm_unfreeze_ent_delay
+			if apm_tab.vars.unfreeze_ent_delay and apm_tab.vars.unfreeze_ent_delay>0 then
+				ply.APM_Next_unfreeze=CurTime()+apm_tab.vars.unfreeze_ent_delay
 			end
 			
 			local APM_Ent=ply:GetEyeTrace().Entity
@@ -23,7 +20,7 @@ if SERVER then
 				local PhysObj=Entity:GetPhysicsObject()
 				if PhysObj:IsValid() then 
 					PhysObj:Wake()
-					if unfreeze_count < apm_unfreeze_ent_limit and !PhysObj:IsMotionEnabled() then
+					if unfreeze_count < apm_tab.vars.unfreeze_ent_limit and !PhysObj:IsMotionEnabled() then
 						PhysObj:EnableMotion(true)
 						unfreeze_count=unfreeze_count+1
 					end
