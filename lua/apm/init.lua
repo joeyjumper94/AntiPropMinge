@@ -1,6 +1,7 @@
 if SERVER then
 	include("apm_util.lua")
-	include("config.lua")
+	include("config.lua")--load the default config file
+	apm_tab:load()--attempt to load the altered settings
 	include("freeze_everything.lua")
 	include("freeze_my_props.lua")
 --	include("propkill_hook.lua")
