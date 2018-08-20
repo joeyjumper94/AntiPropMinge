@@ -10,7 +10,7 @@ hook.Add("PlayerShouldTakeDamage","APM_prop_damage",function(ply,weapon)
 	if IsValid(weapon) and MurderEntBlackList[weapon:GetClass()] then
 		killer=weapon:CPPIGetOwner()
 		if PROP_KILLER!=nil and ply:Team()==PROP_KILLER and killer:Team()==PROP_KILLER then return end--this allows people with the right job to propkill people with the right job
-		if (killer!=ply or apm_tab.vars.prop_suicide_notification!=0) and apm_tab.vars.notify_on_damage!=0 then
+		if (killer!=ply or apm_tab.vars.prop_suicide_notification!=0) and apm_tab.vars.notify_on_damage!=0 and killer and killer:IsValid() then
 			if ulx and ULib then
 				RunConsoleCommand("ulx","asay","someone spectate "..killer:Nick().." ("..killer:SteamID().."). A prop they own damaged "..ply:Nick().." ("..ply:SteamID()..").")
 			else
@@ -23,7 +23,7 @@ hook.Add("PlayerShouldTakeDamage","APM_prop_damage",function(ply,weapon)
 		if weapon:IsValid() and apm_tab.vars.remove_on_damage!=0 then
 			weapon:Remove()
 		end	
-		if weapon:IsValid() and apm_tab.vars.freeze_on_damage!=0 then
+		if weapon:IsValid() and apm_tab.vars.freeze_on_damage!=0 and killer and killer:IsValid() then
 			apm_tab:FreezeOnly(killer)
 		end
 		if apm_tab.vars.allow_prop_damage==0 then

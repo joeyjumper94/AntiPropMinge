@@ -1,4 +1,3 @@
-if true then return end
 AddCSLuaFile()
 hook.Add("PopulateToolMenu", "apm_damage_menu", function()
 	spawnmenu.AddToolMenuOption(
@@ -200,7 +199,7 @@ concommand.Add("apm_unfreeze_ent_limit",function(ply,cmd,args)
 end)--how many enitites can be unfrozen at once using physgun reload?
 concommand.Add("apm_default_settings",function(ply,cmd,args)
 	if !can(ply,"1") then return end
-	include("config.lua")
+	include("apm/config.lua")
 	apm_tab:delete()
 end)
 concommand.Add("apm_load_settings",function(ply,cmd,args)

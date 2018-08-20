@@ -18,11 +18,32 @@ if SERVER then
 			if !APM_Ent:IsValid() then return false end
 			for k,Entity in pairs(constraint.GetAllConstrainedEntities(APM_Ent)) do
 				local PhysObj=Entity:GetPhysicsObject()
-				if PhysObj:IsValid() then 
-					PhysObj:Wake()
-					if unfreeze_count < apm_tab.vars.unfreeze_ent_limit and !PhysObj:IsMotionEnabled() then
-						PhysObj:EnableMotion(true)
-						unfreeze_count=unfreeze_count+1
+				if Entity:IsValid() and Entity:IsRagdoll() then
+					for i=0, Entity:GetPhysicsObjectCount()-1 do
+						local PhysObj = Entity:GetPhysicsObjectNum(i)
+						if PhysObj and PhysObj:IsValid() then 
+							if unfreeze_count < apm_tab.vars.unfreeze_ent_limit then
+								if !PhysObj:IsMotionEnabled() then
+									PhysObj:EnableMotion(true)
+									unfreeze_count=unfreeze_count+1
+									PhysObj:Wake()
+								end
+							else
+								break
+							end
+						end
+					end
+				elseif Entity:IsValid() then
+					if PhysObj and PhysObj:IsValid() then 
+						if unfreeze_count < apm_tab.vars.unfreeze_ent_limit then
+							if !PhysObj:IsMotionEnabled() then
+								PhysObj:EnableMotion(true)
+								unfreeze_count=unfreeze_count+1
+								PhysObj:Wake()
+							end
+						else
+							break
+						end
 					end
 				end
 			end

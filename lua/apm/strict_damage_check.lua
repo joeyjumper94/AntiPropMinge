@@ -9,14 +9,15 @@ hook.Add("EntityTakeDamage","APM_strict_damage",function(ply,dmg)
 			print("damage_type="..type)
 			print("dmg:GetAttacker():GetClass()="..class)
 		end
-		if PROP_KILLER!=nil and ply:Team()==PROP_KILLER and dmg:GetAttacker():CPPIGetOwner():Team()==PROP_KILLER then return end--both the owner of the prop and the victim are of the propkiller job
+		if ply:Team()==PROP_KILLER and attacker:IsPlayer() and attacker:CPPIGetOwner():Team()==PROP_KILLER then return end--both the owner of the prop and the victim are of the propkiller job
 
 		if apm_tab.vars.map_ents_bypass!=0 and attacker:IsValid() and attacker:MapCreationID()!=-1 then
 			return
 		end
+		print((type==DMG_CRUSH or type==DMG_VEHICLE),apm_tab.vars.strict_damage_check!=0 ,attacker!=ply )
 		if (type==DMG_CRUSH or type==DMG_VEHICLE) and apm_tab.vars.strict_damage_check!=0 and dmg:GetAttacker()!=ply then
 			dmg:SetDamage(0)
-		elseif type!=DMG_FALL and !dmg:GetInflictor():IsValid() and apm_tab.vars.allow_world_damage==0 then--sometimes people will get crushed between a prop and the world then die with the world being credited with the kill even though it wasn't DMG_FALL
+		elseif type!=DMG_FALL and !attacker:IsValid() and apm_tab.vars.allow_world_damage==0 then--sometimes people will get crushed between a prop and the world then die with the world being credited with the kill even though it wasn't DMG_FALL
 			dmg:SetDamage(0)
 		end
 	end

@@ -10,4 +10,5 @@ if SERVER then
 	include("strict_damage_check.lua")
 	include("prop_removal.lua")
 	include("physgun_reload_limiter.lua")
+	include("ent_spawn_hook.lua")
 end
